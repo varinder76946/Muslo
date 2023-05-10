@@ -10,15 +10,13 @@ const musicLibsContainer = document.getElementById('music-libs');
 const audioPlayer = document.getElementById('audio_player');
 const pausedBtn = document.getElementById('paused');
 const playingBtn = document.getElementById('playing');
-// const songCurrentTime=  document.getElementById('current_time'); // as we stored data using const songcurenttime next if we call it then we dont need to write const in front of variable name
-// const songTotalTime = document.getElementById('end_time"');
+
 
 var currentSongObj = {};
-var defaultImage = "assests/images/defaultImage.gif";  // jiski value humne change karvani h usko var se define kre ge hamesha kuki
-//const means constant it will not change,
+var defaultImage = "assests/images/defaultImage.gif";  
 
 
-// core logic
+//core logic
 window.addEventListener('load', bootUpApp)
 
 function bootUpApp() {
@@ -37,11 +35,11 @@ function fetchAndRenderAllSections() {
             if (Array.isArray(cardbox) && cardbox.length) { // checking cardbox is array or not
 
 
-                cardbox.forEach(section => {  // this loop will run for each item in the cardbox. so it will fetch data of songsbox 
+                cardbox.forEach(section => {  
                     // and songscard from each section.
                     const { songsbox, songscards } = section; // songsbox, songscards are keyword in res in which data is stored so we taking data of
                     // songsbox in which songscard exsist from response res.
-                    renderSection(songsbox, songscards); // this will also run in forreach funciton songsbox and songscard will store into this
+                    renderSection(songsbox, songscards); 
 
 
                 })
@@ -55,13 +53,12 @@ function fetchAndRenderAllSections() {
 
 }
 
-function renderSection(title, songsList) {  // this function will take song list and title from songbox songlist where function is called.  
+function renderSection(title, songsList) {    
     const songsSection = makeSectionDom(title, songsList);
-    musicLibsContainer.appendChild(songsSection); // this will add our code into html using dom. append used to add created element into html
+    musicLibsContainer.appendChild(songsSection); 
 }
 
-function makeSectionDom(title, songsList) { // it will make section into dom .. dom means interface that allow progrram and scripts to dynamically
-    // // acces and uopdate the content, structure and style of document. 
+function makeSectionDom(title, songsList) { 
 
     //now we will create dom using javascript starting from trending songs which we created using html.
 
@@ -82,11 +79,7 @@ function makeSectionDom(title, songsList) { // it will make section into dom .. 
 }
 
 
-function buildSongCardDom(songObj) { // this function will take song obj input and will return dom
-    // here we put a function on click which function will run which will take songobj
-    // we fetching data from json in songobj hold songcard from json and we extracting data form songcard using id songobj.song_name.
-    // we saved json songobj in data-songobj .
-    // below onclick="playsong(this)" here this represent the div element. so onclick function it will return the whole div element.
+function buildSongCardDom(songObj) { 
 
     return `<div class="song-card"  onClick="playSong(this)" data-songobj='${JSON.stringify(songObj)}'> 
                 <div class="img-cont">
@@ -96,9 +89,7 @@ function buildSongCardDom(songObj) { // this function will take song obj input a
                 <p class="song-name">${songObj.song_name}</p>
          </div>`
 
-    // json.stringify(songObj) means Why do we use JSON Stringify?
-    //  JSON.stringify() A common use of JSON is to exchange data to/from a web server. When sending data to a web server, the data has to
-    // be a string. Convert a JavaScript object into a string with JSON.stringify() .
+   
 }
 
 
@@ -106,10 +97,7 @@ function buildSongCardDom(songObj) { // this function will take song obj input a
 // Music player function 
 
 function playSong(songCardEl) {  // function for playing song
-    const songObj=JSON.parse(songCardEl.dataset.songobj); // json.parse it will convert songobj into text. which will give us the values stored using keys name: ravi, so it will give us ravi // so first we called the whole div element using this. then from that element we extracted
-                                              // some data in which json.songcard stored using dataset is used forThe dataset is a document-oriented module property to access and set the data attribute using JavaScript elements.
-   // json.parse = A common use of JSON is to exchange data to/from a web server.When receiving data from a web server, the data is always a string.
-   //Parse the data with JSON.parse(), and the data becomes a JavaScript object. JavaScript function JSON.parse() to convert text into a JavaScript object:
+    const songObj=JSON.parse(songCardEl.dataset.songobj); 
    
     console.log(songObj);
     setAndPlayCurrentSong(songObj) // it will set the current song which we clicked on .. it will pick that song
