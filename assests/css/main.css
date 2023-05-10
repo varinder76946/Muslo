@@ -1,0 +1,513 @@
+/* two column layout css start */
+
+.two-col-layout {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.music-libs {
+
+    /* flex: 7; */
+    /* max-width: calc(100%-90px); */
+    width: 100%;
+    padding: 0 55px;
+    margin: 0 auto 50px;
+     margin-top: 30px;
+    /* margin-left: 90px;  */
+    max-width: 85%;
+    background-color: #1e1e1e;
+    box-shadow: 10px 30px 40px 30px rgba(0, 0, 0, .3);
+    transition: all 0.5s ease-out;
+
+}
+
+.hide-class{
+    opacity: 0;
+    
+}
+
+.yesClick{
+    padding: 10px;
+    
+}
+
+.ad-cont {
+    position: sticky;
+    top: 330px;
+    right: 30px;
+    flex: 2;
+    height: 240px;
+    max-width: 20%;
+    background-color: #222428;
+    transition: all 0.5s ease-out;
+}
+
+
+/* music content section start */
+
+
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.songs-sections {
+    margin: 50px 0;
+}
+
+.section-heading {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: hsla(0, 0%, 100%, .9);
+    text-transform: capitalize;
+}
+
+.songs-cont {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    /* justify-content: space-between; */
+}
+
+.song-card {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.song-card:hover .overlay{
+    visibility: visible;
+}
+
+.song-card:hover .img-cont{
+    filter: brightness(.75);
+}
+
+.img-cont {
+    width: 160px;
+    height: 160px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.song-name {
+    margin-top: 16px;
+    font-size: 16px;
+    color: hsla(0, 0%, 100%, .9);
+}
+
+.overlay {
+    position: absolute;
+    visibility: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+     z-index: 1;
+    background-color: rgba(0, 0, 0, .3); 
+    cursor: pointer;
+    background-image: url(https://a10.gaanacdn.com/gn_img/images/play_1621599900.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: calc(50% + 1px)50%;
+}
+
+/* .play_icon .fa {
+    font-size: 30px;
+    background-color: black;
+    opacity: 0.95;
+    color: #B2B2B2;
+    padding: 10px 10px 10px 15px;
+    border-radius: 100%;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+} */
+
+
+/* music player css start */
+
+.hidden{
+    display: none !important;
+}
+
+.music-player{
+    position: fixed;
+    box-sizing: border-box; 
+    /* using box sizing things will not overflow */
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    color: aliceblue;
+    background-color:#222428;
+    box-shadow: 0 0 4 px 0 rgb(0 0 0 / 50%);
+    padding: 17px 25px;
+    border-radius: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.song-info{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.song-cover{
+    border-radius: 2px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.t_over{
+    font-size: 16px;
+    color: whitesmoke;
+}
+
+.t_over2{
+    font-size: 12px;
+    margin-top: 2px;
+    margin-left: 4px;
+    color: rgba(240, 248, 255, 0.71);
+}
+
+.current-music-playing{
+    align-items: center;
+ 
+}
+
+.music-controls{
+    align-items: center;
+    /* justify-content: center; */
+
+}
+
+.time{
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.795);
+    color: rgba(255, 255, 255, 0.756);
+    font-size: 12px;
+    padding: 6px 16px;
+}
+
+.music-controls button, .music-quality button{
+    margin: 0 12px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.music-controls .svg_color, .music-quality .svg_color{
+    fill: white;
+}
+
+.play{
+    background-color: #bb7701 !important;
+    border-radius:20px;
+    height: 32px;
+    width: 32px;
+    padding-bottom: 9px;
+}
+
+.next svg{
+    transform: rotate(180deg);
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .two-col-layout{
+        width: 100%;
+        text-align: center;
+    }
+
+    .music-libs{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .img-cont {
+        width: 110px;
+        height: 100px;
+        border-radius: 6px;
+        /* overflow: hidden; */
+        position: relative;
+        left: 10px;
+    }
+
+    .section-heading {
+        margin-bottom: 20px;
+        font-size: 24px;
+        margin-left: 10px;
+        color: hsla(0, 0%, 100%, .9);
+        text-transform: capitalize;
+    }
+
+    
+
+    .t_over{
+        text-align: center;
+    }
+    
+    .songs-cont {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow-x: scroll;
+    }
+
+}
+
+
+/* footer css */
+.footer-grp{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
+.clearfix{
+    color: #bb7701;
+}
+
+.foo-grp-inner h3 a{
+    font-weight: 900;
+    font-size: 14px;
+    color: #bb7701;
+}
+.foo-grp-inner a,.desktop a{
+    display: block;
+    color: #9a3030;
+    font-size: 12px;
+}
+
+.desktop a{
+    display: inline-block;
+    padding-right:1px;
+    font-size: 11px;
+    border-right:1px solid #B2B2B2;
+}
+.desktop{margin-bottom: 20px;}
+.followus,.footer_note,.foo-links{text-align:center;}
+
+
+
+.mobile{display: none;}
+
+.footer_note{
+    font-size: 12px;
+    margin:30px 0px;
+}
+
+.foo-grp{
+    flex: 1;
+}
+.copyright{
+    text-align: center;
+    font-size:12px;
+} 
+
+footer{margin:0px;}
+
+
+.card_box .album_name{
+    display:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*https://fathomless-fortress-96797.herokuapp.com/ | https://git.heroku.com/fathomless-fortress-96797.git*/
+
+
+
+
+
+
+.footer{
+    position:fixed;
+    bottom:0px;
+    height:65px;
+    z-index:110;
+    width:100%;
+    display:none;
+/*    position:relative;*/
+    background-color:#36383d;
+}
+.footer audio{
+    display:none;
+/*    padding:10px 0px; */
+}
+
+.footer .queue{
+    position:absolute;
+    top:-30px;
+    z-index:2;
+    left:17.5%;
+/*    text-align: center;;*/
+    width:65%;
+    height:450px; 
+    margin:auto;
+    padding: 0px;
+/*    transform:translateY(410px);*/
+    transition:1s;
+}
+
+.toggle_queuelist{
+    transform:translateY(-410px);
+    transition: 1s;
+}
+
+.footer ul li .thumb{
+    max-height:40px;
+    max-width:40px;
+}
+.footer #queuelist_options:hover{
+    background-color:#36383d ;
+}
+.footer .thumb{
+    display:inline-block;
+    max-height:45px;
+    max-width: 45px;
+    
+}
+.footer li ,.footer a{color: white;
+    cursor: pointer;
+    background-color:#36383d;
+text-decoration: none;
+list-style: none;}
+
+
+.song_name,.movie_name{
+/*display: inline-block;*/
+margin-right:12px;
+}
+
+.footer ul li:hover,.queue ul li .active{
+    background-color: #232429;
+}
+
+.queue_buttons{
+    width: 80%;
+    text-align: right;
+}
+.open_queue:hover{
+    background-color:#36383d;
+}
+.footer ul{
+    padding:0px;
+    margin:0px;
+/*    height: inherit;*/
+    position:relative;
+}
+
+.none{
+    display:none;
+}
+#playlist_box{
+    background-color:#36383d;
+    height:350px;
+    overflow-y:scroll;
+    display: block;
+    -webkit-overflow-scrolling:touch;
+    border-right:2px solid #212121;
+    border-left:2px solid #212121;
+}
+/*
+#playlist_box .inner_playlist_box {
+    overflow-y: scroll;
+}
+*/
+
+.footer ul li{
+
+    display: flex;
+    padding:10px;
+    border-bottom: 1px solid #B2B2B2;
+}
+.queue .thumb{
+    margin-right: 20px;
+}
+.songs_details{
+    width:55%;
+}
+.album_details{width:30%;}
+.footer li div span{
+    display:block;
+    color: #fff;
+    font-size: 12.5px;
+    font-weight:500;
+    letter-spacing:1px;
+    max-height: 40px;
+    overflow: hidden;
+    padding:10px 0px 0px;
+    text-transform: capitalize;
+    margin:0px;
+}
+
+.dropup{
+display: none;
+height:0px;
+width:20px;
+}
+.dropup button{
+    border:none;
+    background-color: transparent;
+    letter-spacing:2px;
+    font-size: 20px;
+    margin-top:5px;
+}
+
+.dropdown-menu{
+    background-color:#21242E;
+    color:white;
+    height: auto;
+    box-shadow:1px 1px 10px 1px lightblack;
+    text-transform:capitalize;
+/*    z-index:120;*/
+    font-size: 12px;
+    cursor: pointer;
+}
+.queue ul li .dropdown-menu
+{ left:-150px;}
+
+.footer ul li:hover .dropup{
+    display: block;
+}
