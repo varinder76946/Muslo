@@ -26,7 +26,7 @@ function bootUpApp() {
 function fetchAndRenderAllSections() {
     // renderSection(data); // genrate the data and fetch all section data
 
-    fetch('/assests/js/ganna.json') // i's fetching data from json file
+    fetch('assests/js/ganna.json') // i's fetching data from json file
         .then(res => res.json()) // then we converted data into json. (json=> )
         .then(res => {
             console.table('response', res);
