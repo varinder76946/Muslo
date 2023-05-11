@@ -83,7 +83,7 @@ function buildSongCardDom(songObj) {
 
     return `<div class="song-card"  onClick="playSong(this)" data-songobj='${JSON.stringify(songObj)}'> 
                 <div class="img-cont">
-                       <img src="/${songObj.image_source}" alt="${songObj.song_name}">
+                       <img src="${songObj.image_source}" alt="${songObj.song_name}">
                         <div class="overlay"></div>
                 </div>
                 <p class="song-name">${songObj.song_name}</p>
